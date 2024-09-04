@@ -58,7 +58,6 @@ public class UserServiceImpl implements UserService {
         return Optional.of(modelMapper.map(user, GetUserResponseDto.class));
     }
 
-
     @Override
     public GetUserResponseDto updateUser(UpdateUserRequestDto userDetails, UUID id) {
         User user = repository.findById(id)

@@ -1,6 +1,6 @@
-package com.sms.users.repository;
+package com.sms.auth.repository;
 
-import com.sms.users.model.User;
+import com.sms.auth.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

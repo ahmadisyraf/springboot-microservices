@@ -1,8 +1,6 @@
 package com.sms.users.controller;
 
-import com.sms.users.dto.CreateUserRequestDto;
-import com.sms.users.dto.GetUserResponseDto;
-import com.sms.users.dto.UpdateUserRequestDto;
+import com.sms.users.dto.*;
 import com.sms.users.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

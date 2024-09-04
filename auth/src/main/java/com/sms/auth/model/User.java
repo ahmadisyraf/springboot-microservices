@@ -1,4 +1,4 @@
-package com.sms.users.model;
+package com.sms.auth.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
