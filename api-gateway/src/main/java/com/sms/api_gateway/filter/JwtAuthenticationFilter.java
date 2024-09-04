@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
-import java.util.function.Predicate;
-
 @Component
 public class JwtAuthenticationFilter implements GatewayFilter {
 
@@ -26,30 +23,31 @@ public class JwtAuthenticationFilter implements GatewayFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
 
-        final List<String> apiEndpoints = List.of("/v1/auth/login", "/v1/auth/register", "/eureka");
-
-        Predicate<ServerHttpRequest> isApiSecured = r -> apiEndpoints.stream()
-                .noneMatch(uri -> r.getURI().getPath().contains(uri));
-
-        if (isApiSecured.test(request)) {
-            if (authMissing(request)) return onError(exchange);
-
-            String token = request.getHeaders().getOrEmpty("Authorization").get(0);
-
-            if (token != null && token.startsWith("Bearer ")) token = token.substring(7);
-
-            try {
-                jwtUtil.validateToken(token);
-            } catch (Exception e) {
-                return onError(exchange);
-            }
+        if (authMissing(request)) {
+            return onError(exchange, "Authorization header is missing in request");
         }
+
+        String token = request.getHeaders().getOrEmpty("Authorization").get(0);
+
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        } else {
+            return onError(exchange, "Authorization header is invalid or malformed");
+        }
+
+        boolean valid = jwtUtil.validateToken(token);
+
+        if(!valid) {
+            return onError(exchange, "Token is not valid");
+        }
+
         return chain.filter(exchange);
     }
 
-    private Mono<Void> onError(ServerWebExchange exchange) {
+    private Mono<Void> onError(ServerWebExchange exchange, String errorMessage) {
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
+        response.getHeaders().add("X-Error-Message", errorMessage);
         return response.setComplete();
     }
 
