@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  eureka-discovery:
+    container_name: eureka-discovery
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - EUREKA_CLIENT_REGISTER-WITH-EUREKA=false
+      - EUREKA_CLIENT_FETCH-REGISTRY=false
+    ports:
+      - "8761:8761"
+    networks:
+      - my-network
+networks:
+  my-network:
+    external: true

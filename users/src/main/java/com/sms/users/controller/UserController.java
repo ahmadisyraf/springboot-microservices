@@ -42,7 +42,7 @@ public class UserController {
         return new ResponseEntity<GetUserResponseDto>(userService.updateUser(newUserDetails, id), HttpStatus.ACCEPTED).getBody();
     }
 
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     String deleteUser(@PathVariable UUID id) {
         return userService.deleteUser(id);
     }
