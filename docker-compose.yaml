@@ -16,6 +16,15 @@ services:
     networks:
       - my-network
 
+  # Redis Database
+  redis-db:
+    container_name: redis-db
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - my-network
+
   # Eureka Discovery Service
   eureka-discovery:
     container_name: eureka-discovery
@@ -60,12 +69,14 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - postgres-db
+      - redis-db
       - eureka-discovery
     ports:
       - "8080:8080"
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-discovery:8761/eureka
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/sms?createDatabaseIfNotExist=true
+      -  SPRING_CACHE_HOST=redis-db
       - "SPRING_PROFILES_ACTIVE=docker"
     networks:
       - my-network

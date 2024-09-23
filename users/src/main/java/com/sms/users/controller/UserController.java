@@ -4,9 +4,12 @@ import com.sms.users.dto.*;
 import com.sms.users.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +18,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "users")
+//@CacheConfig(cacheNames = "users")
 public class UserController {
 
     @Autowired
@@ -31,6 +35,7 @@ public class UserController {
     }
 
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Cacheable(value = "users", key = "#id")
     Optional<GetUserResponseDto> getUser(@PathVariable UUID id) {
 
         return new ResponseEntity<Optional<GetUserResponseDto>>(userService.getUser(id), HttpStatus.FOUND).getBody();

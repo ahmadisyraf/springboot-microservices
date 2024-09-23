@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dbb25b3-c77a-4899-8feb-029b1484bab3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sms-be.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-discovery/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-discovery/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/sms/api_gateway/config/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/sms/api_gateway/ApiGatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/sms/api_gateway/ApiGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/sms/api_gateway/config/RouteLocatorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/sms/api_gateway/config/RouteLocatorConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-discovery/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-discovery/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/src/main/java/com/sms/users/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/sms/users/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/sms/auth/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/java/com/sms/auth/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/users/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/com/sms/users/UsersApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/sms/users/UsersApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/src/main/java/com/sms/users/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/sms/users/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/src/main/java/com/sms/users/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/java/com/sms/users/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/users/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +71,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.UsersApplication (1)">
+  <component name="RunManager" selected="Application.ApiGatewayApplication (1)">
     <configuration name="ApiGatewayApplication (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sms.api_gateway.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -99,6 +93,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sms.api_gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sms.auth.AuthApplication" />
+      <module name="auth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sms.auth.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,28 +139,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="19" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.sms.users.UsersApplication" />
-      <module name="sms-be" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sms.users.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UsersApplication (1)" />
         <item itemvalue="Application.ApiGatewayApplication (1)" />
-        <item itemvalue="Application.ApiGatewayApplication" />
+        <item itemvalue="Application.AuthApplication" />
+        <item itemvalue="Application.UsersApplication (1)" />
         <item itemvalue="Application.EurekaDiscoveryApplication" />
-        <item itemvalue="Application.UsersApplication" />
+        <item itemvalue="Application.ApiGatewayApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -178,5 +170,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
