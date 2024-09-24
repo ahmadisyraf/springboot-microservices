@@ -76,7 +76,7 @@ services:
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-discovery:8761/eureka
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/sms?createDatabaseIfNotExist=true
-      -  SPRING_CACHE_HOST=redis-db
+      - SPRING_DATA_REDIS_HOST=redis-db
       - "SPRING_PROFILES_ACTIVE=docker"
     networks:
       - my-network

@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-//@EnableCaching
+@EnableCaching
 public class UsersApplication {
 
 	public static void main(String[] args) {
