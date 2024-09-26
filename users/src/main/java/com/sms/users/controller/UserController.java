@@ -35,6 +35,7 @@ public class UserController {
     }
 
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Cacheable(value = "users", key = "#id")
     Optional<GetUserResponseDto> getUser(@PathVariable UUID id) {
         return new ResponseEntity<Optional<GetUserResponseDto>>(userService.getUser(id), HttpStatus.FOUND).getBody();
     }

@@ -7,7 +7,6 @@ import com.sms.users.model.User;
 import com.sms.users.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +51,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable(value = "users", key = "#p0")
     public Optional<GetUserResponseDto> getUser(UUID id) {
         Optional<User> user = Optional.ofNullable(repository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("User not exist")));
